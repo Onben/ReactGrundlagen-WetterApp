@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+        
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./wetter-app
+        
+      - name: Build
+        run: npm run build
+        working-directory: ./wetter-app
